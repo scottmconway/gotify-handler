@@ -2,7 +2,7 @@
 This repo contains an extremely simple logging handler that relays log events to gotify.
 
 ## Installation
-`pip install gotify_handler`
+`pip install gotify-handler`
 
 ## Usage
 ```python

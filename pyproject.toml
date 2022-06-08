@@ -1,9 +1,7 @@
-[build-system]
-requires = ["flit_core >=3.2,<4"]
-build-backend = "flit_core.buildapi"
-
 [project]
 name = "gotify_handler"
+description = "An extremely simple logging handler for relaying log events to gotify"
+version = "1.0.1"
 authors = [{name = "Scott Conway", email = "me@conway.scot"}]
 readme = "README.md"
 license = {file = "LICENSE"}
@@ -12,7 +10,6 @@ classifiers = [
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3 :: Only"
 ]
-dynamic = ["version", "description"]
 dependencies = [
     "requests >=2.6"
 ]

@@ -26,17 +26,21 @@ class GotifyHandler(logging.Handler):
         self.alert_on_log_level = alert_on_log_level
 
     def emit(self, record):
-        if record.levelno < self.alert_on_log_level:
-            priority = 0  # silent
-        else:
-            priority = 5  # causes an alert
+        try:
+            if record.levelno < self.alert_on_log_level:
+                priority = 0  # silent
+            else:
+                priority = 5  # causes an alert
 
-        res = self.gotify_session.post(
-            f"{self.server_url}/message",
-            data={
-                "message": record.msg,
-                "title": f"{record.levelname}:{record.name}",
-                "priority": priority,
-            },
-        )
-        res.raise_for_status()
+            res = self.gotify_session.post(
+                f"{self.server_url}/message",
+                data={
+                    "message": record.msg,
+                    "title": f"{record.levelname}:{record.name}",
+                    "priority": priority,
+                },
+            )
+            res.raise_for_status()
+
+        except BaseException:
+            self.handleError(record)
