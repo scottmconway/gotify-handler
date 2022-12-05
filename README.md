@@ -14,7 +14,8 @@ logging.basicConfig()
 
 gh = GotifyHandler(server_url="https://gotify.example.com",
                    app_token="$APP_TOKEN",
-                   alert_on_log_level=logging.WARNING
+                   alert_on_log_level=logging.WARNING,
+                   extras=None
                    )
 logger.addHandler(gh)
 
@@ -23,3 +24,5 @@ logger.warning("Example warning (causes a notification)")
 ```
 
 `alert_on_log_level` defaults to `logging.WARNING`, but can be set to any value to make log events trigger notifications on gotify. If the log level is below this value, records are sent to gotify with a priority value of 0. Else, records are sent with a priority value of 5.
+
+`extras` may optionally be set to a dictionary with the contents of [Message Extras](https://gotify.net/docs/msgextras#clientnotification) that you wish to pass along with all log messages.

@@ -1,7 +1,7 @@
 [project]
 name = "gotify_handler"
 description = "An extremely simple logging handler for relaying log events to gotify"
-version = "1.0.1"
+version = "1.0.2"
 authors = [{name = "Scott Conway", email = "me@conway.scot"}]
 readme = "README.md"
 license = {file = "LICENSE"}
