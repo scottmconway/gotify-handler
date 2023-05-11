@@ -48,7 +48,7 @@ class GotifyHandler(logging.Handler):
             res = self.gotify_session.post(
                 f"{self.server_url}/message",
                 json={
-                    "message": record.msg,
+                    "message": record.getMessage(),
                     "title": f"{record.levelname}:{record.name}",
                     "priority": priority,
                     "extras": self.extras,
